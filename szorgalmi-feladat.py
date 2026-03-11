@@ -1,37 +1,31 @@
 """
-Negyedik
+Ötödik
 szorgalmi
 feladat.
 """
+def feldolgozas(kerdes):
+    if kerdes.endswith("?"):
+        print("Ez bizony egy kérdés")
 
-x = 7
-y = 4
-if y > 5:
-    print("Y nagyobb, mint 2.")
-    if y % 2 == 0:
-        print("y nagyobb, mint 5.")
-else:
-    print("Y kisebb vagy egyenlő, mint 2.")
+    if not any(karakter.isdigit() for karakter in kerdes):
+        print("Ebben egy számjegy sem volt.")
 
-for nev in ["Dóri", "Csenge", "Bia"]:
-    print(nev)
-    if nev == "Bia":
-        print("Szia Bia!")
+    pontok = kerdes.count(".")
+    print("A kérdés", pontok, "darab pontot tartalmazott.")
 
-while y < 8:
-    print("y még kisebb, mint 8.")
-    y += 1
-    print("y értéke: " + str(y))
+    return "Feldolgozva"
 
-def fuggveny():
-    print("Fut!")
+while True:
+    kerdes = input("Kerdes: ")
 
-    return "megáll"
+    if kerdes == "exit" or kerdes == "quit":
+        print("Bye!")
+        break
 
-fuggveny()
-fuggveny()
-fuggveny()
-fuggveny()
-fuggveny()
-eredmeny = fuggveny()
-print("És " + eredmeny + "t.")
+    print("Ezt kerdezte: " + kerdes)
+
+    valasz = feldolgozas(kerdes)
+
+    print("Válasz: " + str(valasz))
+
+print("VEGE.")
